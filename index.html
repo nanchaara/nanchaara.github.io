@@ -4,31 +4,38 @@
         <title>Zakat</title>
     </head>
     <body>
+        <h1>Zakat Fitrah 1442 H</h1>
+        <h4>Masjid Al-Kautsar Mrincingan</h4>
         <form id="submit-to-google-sheet">
+            
+            <div>
+              <label>Nama Kepala Keluarga</label>
+              <input name="nama_kepala" type="text" placeholder="besar kecil diperhatikan">
+            </div>
   
             <div>
               <label>Jumlah Anggota</label>
-              <input name="jml_anggota" type="text" placeholder="Jumlah Anggota">
+              <input name="jml_anggota" type="text" placeholder="angka">
             </div>
 
             <div>
               <label>Zakat di Masjid</label>
-              <input name="zakat_masjid" type="text" placeholder="Zakat di Masjid">
+              <input name="zakat_masjid" type="text" placeholder="dalam kg/rupiah">
             </div>
 
             <div>
               <label>Zakat di Luar</label>
-              <input name="zakat_luar" type="text" placeholder="Zakat di Luar">
+              <input name="zakat_luar" type="text" placeholder="dalam kg/rp">
             </div>
 
             <div>
               <label>Tempat</label>
-              <input name="tempat" type="text" placeholder="Tempat">
+              <input name="tempat" type="text" placeholder="tempat zakat diberikan">
             </div>
             
             <div>
               <label>Zakat Mal</label>
-              <input name="zakat_mal" type="text" placeholder="Zakat Mal">
+              <input name="zakat_mal" type="text" placeholder="dalam rupiah">
             </div>
 
             <div>
@@ -44,7 +51,11 @@
               form.addEventListener('submit', e => {
                 e.preventDefault()
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                  .then(response => console.log('Success!', response))
+                  .then(response => {
+                  console.log("Success!", response);
+                  location.reload();
+                  return false;
+                })
                   .catch(error => console.error('Error!', error.message))
               })
           </script>
