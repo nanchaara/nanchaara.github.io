@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Zakat</title>
+        <form name="submit-to-google-sheet">
+            <input name="email" type="email" placeholder="Email" required>
+            <button type="submit">Send</button>
+        </form>
+
+      <script>
+          const scriptURL = '<https://script.google.com/macros/s/AKfycbyhqtVwV_IzsFdE4-qo96PCvcs0oeW50lH27nYS_FA1llKtiqr0/exec>'
+          const form = document.forms['submit-to-google-sheet']
+
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message))
+          })
+      </script>
+    </head>
+    <body>
+        <form name="submit-to-google-sheet">
+          
+            <input name="jml_anggota" type="text" placeholder="Jumlah Anggota">
+            <input name="zakat_masjid" type="text" placeholder="Zakat di Masjid">
+            <input name="zakat_luar" type="text" placeholder="Zakat di Luar">
+            <input name="tempat" type="text" placeholder="Tempat">
+            <input name="zakat_mal" type="text" placeholder="Zakat Mal">
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
